@@ -34,3 +34,35 @@
        
        return $salida;
     }
+    
+    
+    
+    /**
+     * Una forma simple de imprimir los campos de cualquier consulta.
+     * @param       array       Un arreglo que contiene los nombres de los campos a imprimir.
+     * @param       texto       El primer campo opcional a imprimir de una consulta.
+     * @param       texto       El segundo campo opcional a imprimir de una consulta.
+     * @param       texto       El tercer campo opcional a imprimir de una consulta.
+     */
+    function imprimir_tabla_bd1( $resultado, $campo1 = null, $campo2 = null, $campo3 = null )
+    {   
+        while( $fila = mysqli_fetch_assoc( $resultado ) )
+        {
+            if( $campo1 != null ) echo $fila[ $campo1 ]; //Si el parámetro 1 ha sido ocupado, se usará par mostrar.
+            if( $campo2 != null ) echo $fila[ $campo2 ]; //Si el parámetro 2 ha sido ocupado, se usará par mostrar.
+            if( $campo3 != null ) echo $fila[ $campo3 ]; //Si el parámetro 3 ha sido ocupado, se usará par mostrar.
+        }
+    }
+    
+    /**
+     * Una forma de imprimir los campos de cualquier consulta.
+     * @param       array       Un arreglo que contiene los nombres de los campos a imprimir.
+     */
+    function imprimir_tabla_bd2( $resultado, $campos )
+    {        
+        while( $fila = mysqli_fetch_assoc( $resultado ) )
+        {
+            for( $i = 0; $i < count( $campos ); $i ++ )
+            echo $fila[ $campos[ $i ] ];            
+        }
+    }

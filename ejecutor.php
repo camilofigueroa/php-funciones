@@ -67,3 +67,16 @@
     //redireccionar_biblioteca_Sena();
     
     echo pintar_div_colores( "Muchas gracias a todos. Chao." );
+    
+    
+    //---------------- sección base de datos ----------------------------------------------
+    
+    $r = consultar_tabla( "tb_usuarios" );
+    imprimir_tabla_bd1( $r, "documento", "nombres" ); //Se imprime campo a campo.
+    echo "<br>";
+    $r = consultar_tabla( "tb_usuarios" );
+    imprimir_tabla_bd2( $r, [ "documento", "nombres", "apellidos" ] ); //Se usa un arreglo para variar la cantidad y nombres de los campos.
+    
+    
+    
+    
